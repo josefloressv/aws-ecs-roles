@@ -11,10 +11,10 @@ How to create & run a Docker image:
 
 ```sh
 # MacOS: the architecture generated is linux/arm64
-docker build -t josefloressv/nodeapp:latest --build-arg NEW_RELIC_LICENSE_KEY=CHANGEME .
+docker build -t josefloressv/nodeapp:latest --build-arg .
 
 # MacOS: change the architecture generated to linux/amd64
-docker build --platform=linux/amd64 -t josefloressv/nodeapp:latest --build-arg NEW_RELIC_LICENSE_KEY=CHANGEME .
+docker build --platform=linux/amd64 -t josefloressv/nodeapp:latest .
 
 # run
 docker run --name=node01 -itd -p 80:3000 josefloressv/nodeapp:latest

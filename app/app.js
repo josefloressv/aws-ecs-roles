@@ -10,8 +10,13 @@ app.get("/app01", (req, res) => {
   res.send("Hola Comunidad!");
 });
 
-app.get("/app01/cncf", (req, res) => {  
+app.get("/app01/cncf", (req, res) => {
   res.send("Hola Comunidad CNCF!");
+});
+
+app.get("/app01/env", (req, res) => {
+  console.log(getTimestampLog() + " Hi USER_NAME=", process.env.USER_NAME);
+  res.send("Hola, " + process.env.USER_NAME);
 });
 
 app.get("/app01/health", (req, res) => {

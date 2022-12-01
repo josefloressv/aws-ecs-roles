@@ -5,6 +5,10 @@ How to build & run the app:
 ```sh
 npm install
 npm start # node app.js
+
+#with variables
+export USER_NAME=Juan
+npm start 
 ```
 
 How to create & run a Docker image:
@@ -16,8 +20,18 @@ docker build -t josefloressv/nodeapp:latest --build-arg .
 # MacOS: change the architecture generated to linux/amd64
 docker build --platform=linux/amd64 -t josefloressv/nodeapp:latest .
 
+# With variables
+export USER_NAME=Juan
+docker build -t josefloressv/nodeapp:latest --build-arg USER_NAME=Juan .
+
 # run
-docker run --name=node01 -itd -p 80:3000 josefloressv/nodeapp:latest
+docker run --name=node01 -itd -p 3000:3000 josefloressv/nodeapp:latest
+
+# run with variables
+docker run --name=node01 -itd -e USER_NAME=Juan -p 3000:3000 josefloressv/nodeapp:latest
+
+export USER_NAME=Luis
+docker run --name=node01 -e USER_NAME -itd -p 3000:3000 josefloressv/nodeapp:latest
 
 # .. and test
 http://localhost:80
